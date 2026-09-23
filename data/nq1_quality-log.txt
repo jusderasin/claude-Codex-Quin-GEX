@@ -1,0 +1,9 @@
+asset=NQ1!
+raw_rows=50
+unique_rows=50
+duplicate_rows_removed=0
+date_range=2026-07-13 to 2026-09-22
+missing_close=0
+flags=2026-08-12 iv_rank_out_of_range (108.2); 2026-09-10 iv_rank_out_of_range (144.9)
+units=Net GEX normalized to millions; K values divided by 1000; raw -$559 normalized to -0.000559M
+coverage_note=First canonical NQ base batch. More history required before backtesting.
