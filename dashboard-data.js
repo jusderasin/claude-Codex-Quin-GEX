@@ -4,21 +4,22 @@ const vaultTable = document.querySelector('#data table');
 
 document.querySelector('.header-meta strong').textContent = '23 SEP 2026';
 
-dashboardMetrics[0].querySelector('strong').textContent = '350';
-dashboardMetrics[0].querySelector('small').textContent = 'ES 150 · VXX 200 · autres à intégrer';
-dashboardMetrics[2].querySelector('strong').textContent = '4';
+dashboardMetrics[0].querySelector('strong').textContent = '400';
+dashboardMetrics[0].querySelector('small').textContent = 'ES 50 · VXX 200 · 150 lignes à reclassifier';
+dashboardMetrics[2].querySelector('strong').textContent = '5';
 
-nextPanel.querySelector('h2').textContent = 'Compléter ES1!';
-nextPanel.querySelector('.badge').textContent = 'VXN INDISPONIBLE';
+nextPanel.querySelector('h2').textContent = 'Identifier 150 lignes';
+nextPanel.querySelector('.badge').textContent = 'CONFLIT DÉTECTÉ';
 nextPanel.querySelector('.badge').classList.remove('amber');
-nextPanel.querySelector('p').textContent = 'Quin confirme l’absence de données historiques VXN. Prochaine collecte : clôtures ES1! manquantes du 25 septembre au 4 décembre 2025.';
+nextPanel.querySelector('p').textContent = 'Les 50 clôtures ES sont propres. L’ancien fichier nommé ES1! affiche toutefois des prix incompatibles sur les mêmes dates : aucune fusion automatique.';
 nextPanel.querySelector('.progress span').style.width = '100%';
-nextPanel.querySelector('small').textContent = 'VXN consigné comme indisponible · aucune estimation utilisée';
+nextPanel.querySelector('small').textContent = '50 clôtures ES isolées · 150 anciennes lignes exclues de toute analyse ES';
 
 vaultTable.innerHTML = `
   <thead><tr><th>Asset</th><th>Sessions</th><th>Période locale</th><th>Close manquant</th><th>Flags</th><th>État</th><th>Export</th></tr></thead>
   <tbody>
-    <tr><td><b>ES1!</b></td><td>150</td><td>03 NOV 2025 → 18 SEP 2026</td><td>0</td><td>2</td><td><span class="data-state ready">CLEAN</span></td><td><a class="download-link" href="data/es1_clean.csv" download>CSV</a></td></tr>
+    <tr><td><b>ES1!</b></td><td>50</td><td>25 SEP 2025 → 04 DEC 2025</td><td>0</td><td>0</td><td><span class="data-state partial">CLOSE SEUL</span></td><td><a class="download-link" href="data/es1_close_clean_2025-09-25_2025-12-04.csv" download>CSV</a></td></tr>
+    <tr><td><b>À identifier</b></td><td>150</td><td>Ancien fichier étiqueté ES1!</td><td>0</td><td>1</td><td><span class="data-state pending">QUARANTAINE</span></td><td>—</td></tr>
     <tr><td><b>VXX</b></td><td>200</td><td>03 DEC 2025 → 21 SEP 2026</td><td>1</td><td>2</td><td><span class="data-state ready">AUDITÉ</span></td><td><a class="download-link" href="data/vxx_master.csv" download>CSV</a></td></tr>
     <tr><td><b>VXN</b></td><td>0</td><td>Historique indisponible chez Quin</td><td>—</td><td>—</td><td><span class="data-state pending">INDISPONIBLE</span></td><td>—</td></tr>
     <tr><td><b>NQ1!</b></td><td>—</td><td>Tables reçues, ingestion à faire</td><td>—</td><td>connus</td><td><span class="data-state pending">EN ATTENTE</span></td><td>—</td></tr>
