@@ -1,0 +1,6 @@
+{
+  "required": ["id", "date", "session", "side", "grade", "setup", "entry", "stop", "targets", "result_points", "result_r", "plan_respected", "trade_image", "gameplan_image", "context", "debrief"],
+  "grades": ["A+", "A", "B", "C"],
+  "sessions": ["Asian", "London", "NY"],
+  "status": "ready_for_first_trade"
+}

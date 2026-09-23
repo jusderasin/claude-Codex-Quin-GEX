@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Journal de recherche GEX et d'exécution NQ/MNQ d'Erwann." />
+  <title>GEX Lab — NQ / MNQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080b10'/%3E%3Cpath d='M13 42h9V29h9v7h9V20h11' fill='none' stroke='%235de4c7' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="extra.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">G</span><div><strong>GEX LAB</strong><small>NQ / MNQ RESEARCH</small></div></div>
+      <nav aria-label="Navigation principale">
+        <button class="nav-item active" data-view="overview"><span>01</span> Dashboard</button>
+        <button class="nav-item" data-view="edges"><span>02</span> Edges</button>
+        <button class="nav-item" data-view="journal"><span>03</span> Trade journal</button>
+        <button class="nav-item" data-view="data"><span>04</span> Data vault</button>
+      </nav>
+      <div class="sidebar-foot"><span class="pulse"></span><div><strong>RESEARCH MODE</strong><small>Edges non validés exclus</small></div></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div><p class="eyebrow">ERWANN · CAYENNE UTC−3</p><h1 id="page-title">Dashboard de recherche</h1></div>
+        <div class="header-meta"><span>Dernière ingestion</span><strong>22 SEP 2026</strong></div>
+      </header>
+
+      <section class="view active" id="overview">
+        <div class="status-strip"><span class="status-label">STATUT</span><strong>Le 71% est invalidé.</strong><p>La priorité est la qualité des données, puis l’espérance R:R.</p></div>
+        <div class="metric-grid">
+          <article class="metric accent"><span>SESSIONS LOCALES</span><strong>250</strong><small>ES 150 · VXX 100 · autres à intégrer</small></article>
+          <article class="metric"><span>EDGES VALIDÉS</span><strong>0</strong><small>Aucune statistique publiée sans holdout</small></article>
+          <article class="metric"><span>ANOMALIES</span><strong>3</strong><small>Flaggées, jamais supprimées silencieusement</small></article>
+          <article class="metric"><span>TRADE JOURNAL</span><strong>0</strong><small>Prêt pour ton premier setup A / A+</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel regime-panel">
+            <div class="panel-head"><div><span class="kicker">PIPELINE</span><h2>De la donnée au playbook</h2></div><span class="badge">AUDITABLE</span></div>
+            <div class="pipeline">
+              <div><b>01</b><span>RAW</span><small>Tables Quin conservées</small></div>
+              <i>→</i><div><b>02</b><span>CLEAN</span><small>Unités et anomalies</small></div>
+              <i>→</i><div><b>03</b><span>TEST</span><small>Baseline + holdout</small></div>
+              <i>→</i><div><b>04</b><span>PLAYBOOK</span><small>Seulement si robuste</small></div>
+            </div>
+          </article>
+
+          <article class="panel next-panel">
+            <div class="panel-head"><div><span class="kicker">PROCHAINE ÉTAPE</span><h2>Compléter VXX</h2></div><span class="badge amber">EN COURS</span></div>
+            <p>Encore un lot ancien, puis passage à VXN. Aucun nouveau backtest avant consolidation.</p>
+            <div class="progress"><span style="width:50%"></span></div>
+            <small>100 sessions VXX matérialisées localement</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="journal">
+        <div class="section-intro"><div><span class="kicker">EXÉCUTION RÉELLE</span><h2>Trade journal</h2><p>Chaque trade relie l’idée, le gameplan Caba, l’exécution et le débrief.</p></div><button class="primary-action" id="trade-spec-btn">Voir les informations requises</button></div>
+        <div class="empty-state"><div class="empty-icon">＋</div><h3>Aucun trade publié</h3><p>Envoie-moi la capture du trade et le gameplan. Je crée la fiche, classe le setup et mets le site à jour.</p></div>
+      </section>
+
+      <section class="view" id="edges">
+        <div class="section-intro"><div><span class="kicker">HYPOTHÈSES ACTIVES</span><h2>Edges en validation</h2><p>Un signal reste ici tant que le sample, la baseline et le holdout ne sont pas suffisants.</p></div></div>
+        <div class="edge-list">
+          <article><span class="edge-id">E-01</span><div><h3>Very Negative GEX → rebond J+1</h3><p>Condition initiale : Net GEX NQ &lt; −2M. R:R et stabilité temporelle à recalculer.</p></div><span class="stage">EXPLORATOIRE</span></article>
+          <article><span class="edge-id">E-02</span><div><h3>Positive GEX → compression</h3><p>Comparer le mouvement absolu J+1 à la baseline, par régime d’IV Rank.</p></div><span class="stage">À TESTER</span></article>
+          <article><span class="edge-id">E-03</span><div><h3>HVL × GEX</h3><p>Matrice quatre quadrants : position du Close vs HVL et signe du Net GEX.</p></div><span class="stage">À TESTER</span></article>
+          <article class="rejected"><span class="edge-id">X-01</span><div><h3>PS 0DTE à moins de 100 pts</h3><p>Ancien 71% réfuté : 10 gains sur 20 setups au rebacktest local.</p></div><span class="stage">REJETÉ</span></article>
+        </div>
+      </section>
+      <section class="view" id="data">
+        <div class="section-intro"><div><span class="kicker">SOURCES VERSIONNÉES</span><h2>Data vault</h2><p>Les lignes douteuses restent visibles avec un flag qualité.</p></div></div>
+        <div class="data-table-wrap"><table><thead><tr><th>Asset</th><th>Sessions</th><th>Période locale</th><th>Close manquant</th><th>Flags</th><th>État</th></tr></thead><tbody><tr><td><b>ES1!</b></td><td>150</td><td>03 NOV 2025 → 18 SEP 2026</td><td>0</td><td>2</td><td><span class="data-state ready">CLEAN</span></td></tr><tr><td><b>VXX</b></td><td>100</td><td>03 DEC 2025 → 28 AVR 2026</td><td>0</td><td>1</td><td><span class="data-state partial">PARTIEL</span></td></tr><tr><td><b>NQ1!</b></td><td>—</td><td>Tables reçues, ingestion à faire</td><td>—</td><td>connus</td><td><span class="data-state pending">EN ATTENTE</span></td></tr></tbody></table></div>
+        <div class="quality-note"><b>Règle qualité</b><span>IV Rank hors 0–100, skew absolu supérieur à 150%, unités incohérentes et doublons sont flaggés avant toute analyse.</span></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="trade-dialog">
+    <button class="dialog-close" aria-label="Fermer">×</button>
+    <span class="kicker">FICHE TRADE</span><h2>Ce que tu peux m’envoyer</h2>
+    <div class="spec-grid"><div><b>Contexte</b><span>Date, session, sens, setup A/A+</span></div><div><b>Plan</b><span>Capture ou HTML Caba Express</span></div><div><b>Exécution</b><span>Entrée, SL, TP, taille, sorties</span></div><div><b>Preuves</b><span>Capture chart avant/après</span></div><div><b>Résultat</b><span>Points, R, respect du plan</span></div><div><b>Débrief</b><span>Ce qui a fonctionné / échoué</span></div></div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

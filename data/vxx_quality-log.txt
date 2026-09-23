@@ -1,0 +1,10 @@
+asset=VXX
+raw_rows=100
+unique_rows=100
+duplicate_rows_removed=0
+date_range=2025-12-03 to 2026-04-28
+missing_close=0
+missing_iv_rank=0
+flags=2025-12-24 iv_rank_out_of_range (-7.7)
+units=Net GEX normalized to millions; K values divided by 1000
+coverage_note=Two locally materialized batches. Earlier VXX batches from 2026-04-29 onward remain to be materialized and merged.
